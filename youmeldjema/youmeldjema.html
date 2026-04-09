@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUM EL DJEMAA</title>
+    <meta name="author" content="mahfoud">
+    <meta name="description" content="Vendredi, les gazelles font leur apparition">
+    <meta name="keywords" content="chaabi, el anka, youm el djemaa, poésie algérienne">
+    <meta name="copyright" content="webchaabi©gmx.com" />
+    <link rel="SHORTCUT ICON" href="img/android-chrome.png" type="image/ico" />
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "CreativeWork",
+      "name": "YOUM EL DJEMAA",
+      "author": {
+        "@type": "Person",
+        "name": "Embârek Essoussi"
+      },
+      "performer": {
+        "@type": "Person",
+        "name": "Cheikh M'Hammed el Anqa"
+      },
+      "datePublished": "2020-01-05",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Webchaabi"
+      }
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#f59e0b',
+                        accent: '#10b981',
+                        chaabi: '#dc2626'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.4s ease-out',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    },
+                    fontFamily: {
+                        'arabic': ['Arabic UI Text', 'Tahoma', 'Arial'],
+                    },
+                    boxShadow: {
+                        'card': '0 4px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                        'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'glow-blue': '0 0 20px rgba(37, 99, 235, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 5px rgba(37, 99, 235, 0.2); }
+            to { box-shadow: 0 0 20px rgba(37, 99, 235, 0.4); }
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card-gradient {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .ticker-container {
+            background: linear-gradient(90deg, #1f2937, #374151, #1f2937);
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: scroll-left 60s linear infinite;
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translate3d(100%, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        .arabic-text {
+            font-family: 'Arabic UI Text', 'Tahoma', 'Arial', sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 25px 25px, rgba(255,255,255,.2) 2px, transparent 0),
+                radial-gradient(circle at 75px 75px, rgba(255,255,255,.2) 2px, transparent 0);
+            background-size: 100px 100px;
+        }
+
+        .tag-badge {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .card-image-overlay {
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+        }
+
+        /* Dark mode styles */
+        .dark {
+            background-color: #1f2937;
+        }
+
+        .dark .bg-white {
+            background-color: #374151;
+        }
+
+        .dark .text-gray-900 {
+            color: #f3f4f6;
+        }
+
+        .dark .text-gray-700 {
+            color: #d1d5db;
+        }
+
+        .dark .text-gray-600 {
+            color: #9ca3af;
+        }
+
+        .dark .bg-gray-50 {
+            background-color: #1f2937;
+        }
+
+        .dark .bg-gradient-to-br {
+            background: linear-gradient(145deg, #1f2937 0%, #374151 100%);
+        }
+
+        .dark .card-gradient {
+            background: linear-gradient(145deg, #374151 0%, #4b5563 100%);
+        }
+
+        /* Responsive grid improvements */
+        @media (max-width: 640px) {
+            .qacidatte-grid {
+                grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 768px) {
+            .qacidatte-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .qacidatte-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .qacidatte-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+    <!-- Navigation moderne -->
+    <nav class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Titre -->
+                <div class="flex items-center space-x-4">
+                    <div class="bg-gradient-to-r from-chaabi to-red-600 text-white px-4 py-2 rounded-lg font-bold text-lg shadow-lg">
+                        Radio Chaabi
+                    </div>
+                </div>
+
+                <!-- Menu principal (desktop) -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-all duration-300 font-medium">
+                        <i class="fas fa-home mr-2"></i>Accueil
+                    </a>
+                    
+                    <!-- Dropdown Chansons -->
+                    <div class="relative group">
+                        <button class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-all duration-300 font-medium flex items-center">
+                            <i class="fas fa-music mr-2"></i>Chansons
+                            <i class="fas fa-chevron-down ml-2 transform group-hover:rotate-180 transition-transform duration-300"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+                            <div class="p-2">
+                                <a href="http://chaabi.free.fr/" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all duration-200">
+                                    <i class="fas fa-microphone mr-3 text-blue-500"></i>Chaabi
+                                </a>
+                                <a href="http://mahfoud.z.free.fr/fetes.html" class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-all duration-200">
+                                    <i class="fas fa-calendar-alt mr-3 text-green-500"></i>Fetes
+                                </a>
+                                <a href="http://mahfoud.z.free.fr/andalou.html" class="block px-4 py-3 text-gray-700 hover:bg-yellow-50 hover:text-yellow-600 rounded-lg transition-all duration-200">
+                                    <i class="fas fa-guitar mr-3 text-yellow-500"></i>Andalou
+                                </a>
+                                <a href="https://webchaabi.com/yacineandmalik.html" class="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-all duration-200">
+                                    <i class="fas fa-users mr-3 text-purple-500"></i>Yacine and Malik
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://webchaabi.com/biographie.html" class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-all duration-300 font-medium">
+                        <i class="fas fa-user-circle mr-2"></i>Biographies
+                    </a>
+                    <a href="https://webchaabi.com/intervw.html" class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-all duration-300 font-medium">
+                        <i class="fas fa-microphone-alt mr-2"></i>Interviews
+                    </a>
+                    <a href="https://webchaabi.com/bouqallattes.html" class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-all duration-300 font-medium">
+                        <i class="fas fa-book mr-2"></i>bouqallattes
+                    </a>
+                    <a href="https://webchaabi.com/qacidattes.html" class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-all duration-300 font-medium">
+                        <i class="fas fa-book-open mr-2"></i>Qacidattes
+                    </a>
+                    <div class="relative group">
+                        <button class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-all duration-300 font-medium flex items-center">
+                            <i class="fas fa-ellipsis-h mr-2"></i>Divers
+                            <i class="fas fa-chevron-down ml-2 transform group-hover:rotate-180 transition-transform duration-300"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+                            <div class="p-2">
+                                <a href="https://webchaabi.com/glossaire.html" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all duration-200">
+                                    <i class="fas fa-book mr-3 text-blue-500"></i>Glossaire
+                                </a>
+                                <a href="https://webchaabi.com/lithographie.html" class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-all duration-200">
+                                    <i class="fas fa-image mr-3 text-green-500"></i>Lithographie
+                                </a>
+                                <a href="https://webchaabi.com/chafia.html" class="block px-4 py-3 text-gray-700 hover:bg-yellow-50 hover:text-yellow-600 rounded-lg transition-all duration-200">
+                                    <i class="fas fa-user mr-3 text-yellow-500"></i>Chafia Boudraa
+                                </a>
+                                <a href="https://webchaabi.com/chronique.html" class="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-all duration-200">
+                                    <i class="fas fa-newspaper mr-3 text-purple-500"></i>Chronique
+                                </a>
+                                <a href="https://webchaabi.com/varietes.html" class="block px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                    <i class="fas fa-music mr-3 text-red-500"></i>Varietes
+                                </a>
+                                <a href="https://webchaabi.com/commentaires.html" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all duration-200">
+                                    <i class="fas fa-comments mr-3 text-blue-500"></i>Commentaires
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boutons sociaux et radio -->
+                <div class="flex items-center space-x-3">
+                    <a href="https://webchaabi.com/radiodialna.html" 
+                       class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 py-2 rounded-lg transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <i class="fas fa-radio mr-2"></i>Radio Live
+                    </a>
+
+                    <!-- Menu mobile -->
+                    <button id="mobile-menu-button" class="lg:hidden p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu mobile -->
+            <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-100 py-4">
+                <div class="space-y-2">
+                    <a href="index.html" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all duration-300">
+                        <i class="fas fa-home mr-3"></i>Accueil
+                    </a>
+                    
+                    <a href="https://webchaabi.com/biographie.html" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all duration-300">
+                        <i class="fas fa-user-circle mr-3"></i>Biographies
+                    </a>
+                    <a href="https://webchaabi.com/intervw.html" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all duration-300">
+                        <i class="fas fa-microphone-alt mr-3"></i>Interviews
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section for the poem -->
+    <section class="gradient-bg hero-pattern py-16 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative max-w-7xl mx-auto px-4 text-center">
+            <div class="animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                    YOUM EL DJEMAA
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                    Vendredi, les gazelles font leur apparition
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <i class="fas fa-play mr-2"></i>Écouter
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-primary transition-all duration-300">
+                        <i class="fas fa-info-circle mr-2"></i>En savoir plus
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ticker modernisé -->
+    <div class="ticker-container h-12 flex items-center">
+        <div class="ticker-content px-4">
+            <i class="fas fa-star mr-2"></i>
+            <span id="ticker-text">Chargement des dédicaces...</span>
+        </div>
+    </div>
+
+    <!-- Main content section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="lg:flex">
+                    <div class="lg:w-2/3 p-8 lg:p-12">
+                        <div class="mb-6">
+                            <span class="bg-gradient-to-r from-primary to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                                Qacidatte
+                            </span>
+                        </div>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                            YOUM EL DJEMAA
+                        </h2>
+                        <p class="text-xl text-gray-600 mb-4">
+                            Vendredi, les gazelles font leur apparition
+                        </p>
+                        <div class="prose prose-lg text-gray-700 leading-relaxed mb-6">
+                            <p>
+                                Auteur : Embârek Essoussi
+                            </p>
+                            <p>
+                                Interprète : Cheikh M'Hammed el Anqa
+                            </p>
+                            <p>
+                                by Mahfoud, 05/01/2020
+                            </p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-xl mb-6 border-l-4 border-primary">
+                            <h3 class="font-bold text-primary mb-3 flex items-center arabic-text">
+                                <i class="fas fa-book-open mr-2"></i>
+                                يوم الجمعة تبان الغزايل
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed arabic-text">
+                            <img src="eldjemaa_1.jpg" class="img-fluid z-depth-2" width="100%" alt="Chaabi">
+                                <!-- Add the Arabic poem text here -->
+                           <!--     يوم الجمعة تبان الغزايل خلف حجابهم المشدود؛ أنظارهم تخترقني، يثقلون عليّ, يخطفون روحي ويغمرونني في الضياع؛ ثم, يديرون ظهورهم ويتركونني أهدئ حرق جروحي.
+                                ليأتي شخص ما لمساعدة العاشق الذي, مثلي, يتمزق بدون ضربات سيف.
+                                عيون لامعة جرحتني في اليوم الذي التقيت فيه بفتيات جميلات في حدائق معزولة؛ قيّمني بنظرة؛ فوراً, متبعاً خطواتهن, همست بعض الكلمات لهؤلاء الجميلات الوحشيات اللواتي كن يختفين دون أن يتكرموا بالرد؛ أصبت بالهزّة.
+                                أعلنت لهن فوراً يا المارة, ارحمني, لا تجعليني أعاني أنت, الجميلات بعيون سوداء.
+                                أداروا ظهورهم وابتعدوا باتجاه مزار.
+                                يا الآلام, يا الآلام!
+                                يعودن من حجّتهن, العين في اليقظة, في كامل مجدهن.
+                                الكورس
+                                يوم الجمعة, الجميلات يظهرن من فاس القديمة الرائعة...
+                                في موكب مذهل للعقل, يشبه الغزال.
+                                يوم الجمعة, الجميلات يظهرن, ملتهبات, على عتبة بابهن, يتنافسن في الأناقة, مرتديات ملابس مناسبة, قفطان لامع, من قماش مضلع لون عنبري و حناء, منقوش بأحمر قرمزي وأخضر تفاحي
+                                -لكن لديهن قلب من حجر-, ومرتديات أيضاً قفطان أرستقراطية, من حرير منقوش لون أبسنث, من زخارف لا توصف, من بوبلين ناعم و تافتا, من كريب الشين و بروكار لامع ذو قيمة لا تقدر, من أحزمة أغلى من الحرير, من مانتيل بفرنجة لون أسود, و أساور فضة ترتديها لبؤات متوجات مرافقة لسيدة مميزة; يسحقن العقل, ويضعن قلبي في فوضى.
+                                يا الآلام, يا الآلام! في زيهم من البروكار المرصع باللؤلؤ و البريق الذهبي,
+                                الكورس
+                                ظهرن على الطريق في موكب, يقطفن الزهور البرية, عائدين من المزار نحو الحدائق حيث يجتمعن, يشبهن الغزال في الحرية ; أجدهن يتنزهن في مجموعات متتالية.
+                                في زخارف كن قد طرزنها, كن يحملن, فخورات ومغرورات, أطباق متنوعة,
+-->                            </p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-xl mb-6 border-l-4 border-primary">
+                            <h3 class="font-bold text-primary mb-3 flex items-center">
+                                <i class="fas fa-book-open mr-2"></i>
+                                Le Poème
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Vendredi, les gazelles font leur apparition derrière leur voilette serrée; leurs regards me transpercent, elles m'accablent, ravissent mon âme et me plongent dans l'égarement; puis, se détournant, elles me laissent apaiser les brûlures de mes plaies.
+                                Que l'on vienne en aide à l'amoureux qui, comme moi, est écharpé sans coups d'épée.
+                                Des yeux alanguis m'ont meurtri le jour où j'ai rencontré de belles jeunes filles en des jardins isolés ; elles m'ont jaugé du regard; aussitôt, leur emboîtant le pas, je murmurai quelques paroles à ces belles farouches qui s'éclipsaient sans daigner me répondre; j'en fus ébranlé.
+                                Je leur déclarai sur-le-champ ô passantes, ayez pitié de moi, ne me faites point souffrir vous, les belles aux yeux noirs.
+                                Elles me tournèrent le dos et s'éloignèrent en direction d'un sanctuaire.
+                                Ô douleurs, ô douleurs!
+                                Elles reviennent de leur pèlerinage, le regard en éveil, dans toute leur splendeur.
+                                refrain
+                                Vendredi, les belles font leur apparition de la resplendissante Fez antique...
+                                en cortège éblouissant l'esprit, comparables à des gazelles.
+                                Vendredi, les belles font leur apparition, flamboyantes, au seuil de leur porte, rivalisant d'élégance, vêtues d'habits seyants, de qaftans chatoyants, d'étoffe côtelée couleur amarante et henné, diaprée de rouge écarlate et de vert tilleul
+                                -mais elles ont un cour de pierre-, et revêtues aussi de caftans aristocratiques, de soie brochée couleur absinthe, de parures ineffables, de fine popeline et de taffetas, de crêpe de chine et de brocart lumineux de valeur inestimable, de ceintures plus précieuses que la soie, de mantilles à franges de couleur noire, et de bracelets d'argent portés par des lionnes couronnées escortées d'une dame distinguée; elles subjuguent l'esprit, et mettent mon cour en désordre.
+                                Ô douleurs, ô douleurs ! Dans leur tenue de brocarts incrustés de perles et de paillettes d'or,
+                                refrain
+                                elles apparurent sur le sentier en procession, cueillant des fleurs sauvages, revenant du sanctuaire vers les vergers où se réunir, comparables à des gazelles en liberté ; je les retrouve se promenant en groupes successifs.
+                                Dans des parures qu'elles avaient brodées, elles portaient, fières et orgueilleuses, des mets variés,
+                            </p>
+                        </div>
+                        <div class="flex justify-between mt-8">
+                            <a href="../../qacidattes.html" class="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition-all duration-300 flex items-center shadow-sm hover:shadow-md">
+                                <i class="fas fa-arrow-left mr-2"></i> Retour aux Qacidattes
+                            </a>
+                            <a href="youmeldjema2.html" class="bg-secondary text-white px-6 py-3 rounded-full font-medium hover:bg-yellow-700 transition-all duration-300 flex items-center shadow-sm hover:shadow-md">
+                                PAGE SUIVANTE <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                        
+
+                    </div>
+                    <div class="lg:w-1/3 bg-gradient-to-br from-blue-500 to-purple-600 p-8 lg:p-12 flex items-center justify-center">
+                        <div class="text-center">
+                            <img src="artistes/anqa1.jpg" alt="Cheikh M'Hammed el Anqa" class="w-48 h-48 object-cover rounded-full mx-auto mb-6 border-4 border-white shadow-xl">
+                            <h3 class="text-white text-xl font-bold mb-2">Cheikh M'Hammed el Anqa</h3>
+                            <p class="text-blue-100">Interprète</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer moderne -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Section Webchaabi -->
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                            Webchaabi
+                        </h3>
+                        <div class="w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-4"></div>
+                        <h4 class="font-semibold mb-3">
+                            <a href="http://mahfoud.zalouk.free.fr/emissions.html" class="text-blue-400 hover:text-blue-300 transition-colors duration-300">
+                                <i class="fas fa-radio mr-2"></i>Emissions Chaabi
+                            </a>
+                        </h4>
+                        <img src="photol-p/28pay.jpg" alt="Musique Chaabi" class="w-full rounded-lg shadow-lg mb-4 hover:scale-105 transition-transform duration-300">
+                        <p class="text-gray-300 font-medium">La musique populaire Algérienne</p>
+                    </div>
+                </div>
+
+                <!-- Section Chansons -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-music mr-2 text-blue-400"></i>
+                        Chansons
+                    </h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mb-6"></div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                            <img src="photol-p/13pay.jpg" class="w-12 h-12 object-cover rounded-lg" alt="Chaabi">
+                            <div>
+                                <a href="http://chaabi.free.fr/" class="text-blue-400 hover:text-blue-300 font-medium block">
+                                    Le Chaabi
+                                </a>
+                                <p class="text-gray-400 text-sm">Janvier 01, 1990</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                            <img src="photol-p/9pay.jpg" class="w-12 h-12 object-cover rounded-lg" alt="Fêtes">
+                            <div>
+                                <a href="http://mahfoud.z.free.fr/fetes.html" class="text-green-400 hover:text-green-300 font-medium block">
+                                    Fêtes
+                                </a>
+                                <p class="text-gray-400 text-sm">Janvier 01, 1990</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                            <img src="photol-p/12pay.jpg" class="w-12 h-12 object-cover rounded-lg" alt="Andalou">
+                            <div>
+                                <a href="http://mahfoud.z.free.fr/andalou.html" class="text-yellow-400 hover:text-yellow-300 font-medium block">
+                                    Andalou
+                                </a>
+                                <p class="text-gray-400 text-sm">Janvier 01, 1990</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Divers -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-th-large mr-2 text-purple-400"></i>
+                        Divers
+                    </h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full mb-6"></div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                            <img src="photol-p/36pay.jpg" class="w-12 h-12 object-cover rounded-lg" alt="Biographies">
+                            <div>
+                                <a href="https://webchaabi.com/biographie.html" class="text-purple-400 hover:text-purple-300 font-medium block">
+                                    Biographies
+                                </a>
+                                <p class="text-gray-400 text-sm">Janvier 01, 1990</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                            <img src="photol-p/25pay.jpg" class="w-12 h-12 object-cover rounded-lg" alt="Interviews">
+                            <div>
+                                <a href="https://webchaabi.com/intervw.html" class="text-orange-400 hover:text-orange-300 font-medium block">
+                                    Interviews
+                                </a>
+                                <p class="text-gray-400 text-sm">Janvier 01, 2000</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                            <img src="photol-p/20pay.jpg" class="w-12 h-12 object-cover rounded-lg" alt="Qacidattes">
+                            <div>
+                                <a href="https://webchaabi.com/qacidattes.html" class="text-red-400 hover:text-red-300 font-medium block">
+                                    Qacidattes
+                                </a>
+                                <p class="text-gray-400 text-sm">Janvier 01, 1990</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Autres -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-star mr-2 text-yellow-400"></i>
+                        Autres
+                    </h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full mb-6"></div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                            <img src="photol-p/4pay.jpg" class="w-12 h-12 object-cover rounded-lg" alt="Bouqallattes">
+                            <div>
+                                <a href="https://webchaabi.com/bouqallattes.html" class="text-teal-400 hover:text-teal-300 font-medium block">
+                                    Bouqallattes
+                                </a>
+                                <p class="text-gray-400 text-sm">Janvier 01, 1990</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                            <img src="photol-p/5pay.jpg" class="w-12 h-12 object-cover rounded-lg" alt="Lithographie">
+                            <div>
+                                <a href="https://webchaabi.com/litho.html" class="text-indigo-400 hover:text-indigo-300 font-medium block">
+                                    Lithographie
+                                </a>
+                                <p class="text-gray-400 text-sm">Janvier 01, 2000</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+                            <img src="photol-p/6pay.jpg" class="w-12 h-12 object-cover rounded-lg" alt="Variétés">
+                            <div>
+                                <a href="https://webchaabi.com/variete.html" class="text-pink-400 hover:text-pink-300 font-medium block">
+                                    Variétés
+                                </a>
+                                <p class="text-gray-400 text-sm">Janvier 01, 1990</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="mt-8 p-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg">
+                        <h4 class="font-bold mb-2">Restez informé</h4>
+                        <p class="text-sm mb-3 text-blue-100">Recevez les dernières qacidattes</p>
+                        <div class="flex">
+                            <input type="email" placeholder="Votre email" 
+                                   class="flex-1 px-3 py-2 rounded-l-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
+                            <button class="bg-white text-blue-600 px-4 py-2 rounded-r-lg font-medium text-sm hover:bg-gray-100 transition-colors duration-300">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Séparateur -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+                    <!-- Copyright -->
+                    <div class="text-center lg:text-left">
+                        <p class="text-gray-400">
+                            © 2018 Copyright : 
+                            <a href="https://webchaabi.com/" class="text-blue-400 hover:text-blue-300 font-semibold transition-colors duration-300">
+                                Webchaabi.com
+                            </a>
+                        </p>
+                        <p class="text-gray-500 text-sm mt-1">Préservons ensemble notre patrimoine musical</p>
+                    </div>
+
+                    <!-- Réseaux sociaux -->
+                    <div class="flex items-center space-x-3">
+                        <span class="text-gray-400 text-sm mr-2">Suivez-nous :</span>
+                        <a href="https://www.facebook.com/radiochaabidialna/" 
+                           class="w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/webchaabi" 
+                           class="w-10 h-10 bg-sky-500 hover:bg-sky-600 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mahfoudzalouk/" 
+                           class="w-10 h-10 bg-blue-700 hover:bg-blue-800 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://webchaabi.com/contact.html" 
+                           class="w-10 h-10 bg-gray-600 hover:bg-gray-700 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mentions légales -->
+                <div class="mt-6 pt-6 border-t border-gray-800 text-center">
+                    <div class="flex flex-wrap justify-center items-center space-x-6 text-sm text-gray-500">
+                        <a href="#" class="hover:text-gray-300 transition-colors duration-300">Mentions légales</a>
+                        <a href="#" class="hover:text-gray-300 transition-colors duration-300">Politique de confidentialité</a>
+                        <a href="#" class="hover:text-gray-300 transition-colors duration-300">Plan du site</a>
+                        <a href="https://webchaabi.com/contact.html" class="hover:text-gray-300 transition-colors duration-300">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton de retour en haut -->
+    <button id="back-to-top" 
+            class="fixed bottom-8 right-8 w-12 h-12 bg-primary hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 opacity-0 invisible z-50">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        /* ------- Dark mode toggle code ------- */
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        // Check dark mode preference on load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            if (body.classList.contains('dark')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+        /* ------- End dark mode toggle code ------- */
+
+        /* ------- Dedications code ------- */
+        var request = new XMLHttpRequest();
+        request.open('GET', 'api/dedications.php', true);
+        request.onload = function () {
+            if (this.status === 200) {
+                try {
+                    var data = JSON.parse(this.response);
+                    let tickerText = '';
+                    
+                    for (var i = 0; i < Math.min(data.length, 10); i++) {
+                        tickerText += `🎵 ${data[i].sender_name} pour ${data[i].recipient_name}: "${data[i].description}" _ ${new Date(data[i].created_at).toLocaleString()} • `;
+                    }
+                    
+                    if (tickerText) {
+                        document.getElementById('ticker-text').innerHTML = tickerText;
+                    }
+                } catch (e) {
+                    console.error('Erreur parsing JSON:', e);
+                    document.getElementById('ticker-text').innerHTML = '🎵 Bienvenue sur Webchaabi • Découvrez la poésie algérienne • Explorez notre riche collection de qacidattes • ';
+                }
+            } else {
+                document.getElementById('ticker-text').innerHTML = '🎵 Bienvenue sur Webchaabi • Découvrez la poésie algérienne • Explorez notre riche collection de qacidattes • ';
+            }
+        };
+        request.onerror = function() {
+            document.getElementById('ticker-text').innerHTML = '🎵 Bienvenue sur Webchaabi • Découvrez la poésie algérienne • Explorez notre riche collection de qacidattes • ';
+        };
+        request.send();
+        /* ------- End dedications code ------- */
+
+        /* ------- Back to top button code ------- */
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        /* ------- End back to top button code ------- */
+    </script>
+</body>
+</html>
